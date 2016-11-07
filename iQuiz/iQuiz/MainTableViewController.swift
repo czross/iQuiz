@@ -29,14 +29,22 @@ class MainTableViewController: UITableViewController {
     
     private func configureTableview() {
         self.tableView.rowHeight = UITableViewAutomaticDimension
-        self.tableView.estimatedRowHeight = 69
+        self.tableView.estimatedRowHeight = 100
         self.tableView.tableFooterView = UIView()
+    }
+    
+    private func configureNavBar() {
+        self.title = "iQuiz"
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.navigationBar.tintColor = .white
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.configureTableview()
+        self.configureNavBar()
         // Uncomment the following line to preserve selection between presentations
         // self.    clearsSelectionOnViewWillAppear = false
 
