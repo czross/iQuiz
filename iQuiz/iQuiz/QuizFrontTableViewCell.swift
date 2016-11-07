@@ -10,6 +10,10 @@ import UIKit
 
 class QuizFrontTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var titleCell: UILabel!
+    @IBOutlet weak var descrCell: UILabel!
+    @IBOutlet weak var imgCell: UIImageView!
+ 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		063716091DD00FF4001261DD /* QuizFrontTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063716081DD00FF4001261DD /* QuizFrontTableViewCell.swift */; };
-		0637160D1DD018D5001261DD /* quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0637160C1DD018D5001261DD /* quiz.swift */; };
+		0637160F1DD032C1001261DD /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0637160E1DD032C1001261DD /* Quiz.swift */; };
 		067DD0C31DCFC56B00AA0AE1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067DD0C21DCFC56B00AA0AE1 /* AppDelegate.swift */; };
 		067DD0C81DCFC56B00AA0AE1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 067DD0C61DCFC56B00AA0AE1 /* Main.storyboard */; };
 		067DD0CB1DCFC56B00AA0AE1 /* iQuiz.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 067DD0C91DCFC56B00AA0AE1 /* iQuiz.xcdatamodeld */; };
@@ -38,7 +38,7 @@
 
 /* Begin PBXFileReference section */
 		063716081DD00FF4001261DD /* QuizFrontTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizFrontTableViewCell.swift; sourceTree = "<group>"; };
-		0637160C1DD018D5001261DD /* quiz.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = quiz.swift; sourceTree = "<group>"; };
+		0637160E1DD032C1001261DD /* Quiz.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
 		067DD0BF1DCFC56B00AA0AE1 /* iQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		067DD0C21DCFC56B00AA0AE1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		067DD0C71DCFC56B00AA0AE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -83,6 +83,7 @@
 		067DD0B61DCFC56B00AA0AE1 = {
 			isa = PBXGroup;
 			children = (
+				0637160E1DD032C1001261DD /* Quiz.swift */,
 				067DD0C11DCFC56B00AA0AE1 /* iQuiz */,
 				067DD0D91DCFC56B00AA0AE1 /* iQuizTests */,
 				067DD0E41DCFC56B00AA0AE1 /* iQuizUITests */,
@@ -105,13 +106,12 @@
 			children = (
 				067DD0F31DCFCC8A00AA0AE1 /* MainTableViewController.swift */,
 				067DD0C21DCFC56B00AA0AE1 /* AppDelegate.swift */,
-				0637160C1DD018D5001261DD /* quiz.swift */,
+				063716081DD00FF4001261DD /* QuizFrontTableViewCell.swift */,
 				067DD0C61DCFC56B00AA0AE1 /* Main.storyboard */,
 				067DD0CC1DCFC56B00AA0AE1 /* Assets.xcassets */,
 				067DD0CE1DCFC56B00AA0AE1 /* LaunchScreen.storyboard */,
 				067DD0D11DCFC56B00AA0AE1 /* Info.plist */,
 				067DD0C91DCFC56B00AA0AE1 /* iQuiz.xcdatamodeld */,
-				063716081DD00FF4001261DD /* QuizFrontTableViewCell.swift */,
 			);
 			path = iQuiz;
 			sourceTree = "<group>";
@@ -271,8 +271,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0637160D1DD018D5001261DD /* quiz.swift in Sources */,
 				063716091DD00FF4001261DD /* QuizFrontTableViewCell.swift in Sources */,
+				0637160F1DD032C1001261DD /* Quiz.swift in Sources */,
 				067DD0F41DCFCC8A00AA0AE1 /* MainTableViewController.swift in Sources */,
 				067DD0CB1DCFC56B00AA0AE1 /* iQuiz.xcdatamodeld in Sources */,
 				067DD0C31DCFC56B00AA0AE1 /* AppDelegate.swift in Sources */,

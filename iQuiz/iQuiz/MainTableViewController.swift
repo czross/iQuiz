@@ -10,6 +10,12 @@ import UIKit
 
 class MainTableViewController: UITableViewController {
 
+    
+    let info: [String] = ["Science", "Math", "Marvel"]
+    let infoDescr: [String] = ["Stuff about the univers", "Stuff about numbers", "Stuff about superheros"]
+    let img: [String] = ["science", "math", "marvel"]
+    
+
     @IBAction func editBtnInput(_ sender: AnyObject) {
         let alert = UIAlertController(title: "Settings!", message:"This feature isn't available right now", preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .default) { _ in
@@ -21,11 +27,18 @@ class MainTableViewController: UITableViewController {
         self.present(alert, animated: true){}
     }
     
+    private func configureTableview() {
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.estimatedRowHeight = 69
+        self.tableView.tableFooterView = UIView()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.configureTableview()
         // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        // self.    clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
@@ -45,15 +58,17 @@ class MainTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return info.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! QuizFrontTableViewCell
         // Configure the cell...
-
+        cell.titleCell.text = self.info[indexPath.row]
+        cell.descrCell.text = self.infoDescr[indexPath.row]
+        cell.imgCell.image?.accessibilityIdentifier = self.img[indexPath.row]
+        
         return cell
     }
     
