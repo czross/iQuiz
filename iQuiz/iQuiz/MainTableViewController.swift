@@ -75,7 +75,7 @@ class MainTableViewController: UITableViewController {
         // Configure the cell...
         cell.titleCell.text = self.info[indexPath.row]
         cell.descrCell.text = self.infoDescr[indexPath.row]
-        cell.imgCell.image?.accessibilityIdentifier = self.img[indexPath.row]
+        cell.imgCell.image = UIImage(named: self.img[indexPath.row])
         
         return cell
     }
