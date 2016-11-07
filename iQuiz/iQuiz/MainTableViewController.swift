@@ -10,6 +10,17 @@ import UIKit
 
 class MainTableViewController: UITableViewController {
 
+    @IBAction func editBtnInput(_ sender: AnyObject) {
+        let alert = UIAlertController(title: "Settings!", message:"This feature isn't available right now", preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default) { _ in
+            // Put here any code that you would like to execute when
+            // the user taps that OK button (may be empty in your case if that's just
+            // an informative alert)
+        }
+        alert.addAction(action)
+        self.present(alert, animated: true){}
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,7 +40,7 @@ class MainTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -37,7 +48,7 @@ class MainTableViewController: UITableViewController {
         return 0
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
@@ -45,7 +56,7 @@ class MainTableViewController: UITableViewController {
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
