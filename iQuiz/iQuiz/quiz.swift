@@ -10,26 +10,51 @@ import UIKit
 
 class Quiz {
     var chosenQuiz: String
-    let quizQuestions: [[String: [String]]] // array of a dictionary that has a String : [String] pairing
-    let numQuizes: Int
-    let quizName: [String]
-    let quizDesc: [String]
-    let answers: [[Int]]
+    var quizQuestions: [String: [[String: [String]]]] //a Dictionary of arrays of a dictionary that has a String : [String] pairing
+    var numQuizes: Int
+    var quizName: [String]
+    var quizDesc: [String]
+    var answers: [[Int]]
     var chosenAnswer: Int
+    var currentQuestions: [[String: [String]]]
     
-    init(quizes: [[String: [String]]], quizNames: [String], quizDescription: [String],
-         answerArray: [[Int]]) {
+    init() {
         self.chosenQuiz = ""
-        self.quizQuestions = quizes
-        self.numQuizes = quizes.count
-        self.quizName = quizNames
-        self.quizDesc = quizDescription
-        self.answers = answerArray
+        self.quizQuestions = ["Start": [["Start": ["Start"]]]]
+        self.numQuizes = 0
+        self.quizName = ["blank"]
+        self.quizDesc = ["blank"]
+        self.answers = [[0]]
         self.chosenAnswer = 0
+        self.currentQuestions = [["String": ["Start"]]]
     }
     
-    func choose(this: Int) {
-        self.chosenAnswer = this
+    func add(questions: [String: [[String: [String]]]]) {
+        self.quizQuestions = questions
     }
+    
+    func add(quizNames: [String]) {
+        self.quizName = quizNames
+        self.numQuizes = self.quizName.count
+    }
+    
+    func add(quizDescription: [String]) {
+        self.quizDesc = quizDescription
+    }
+    
+    func add(answer: [[Int]]) {
+        self.answers = answer
+    }
+    
+    func choose(answer: Int) {
+        self.chosenAnswer = answer
+    }
+    
+    func choose(quiz: Int) {
+        self.chosenQuiz = self.quizName[quiz]
+        self.currentQuestions = self.quizQuestions[self.chosenQuiz]!
+    }
+    
+    
 
 }

@@ -9,20 +9,19 @@
 import UIKit
 
 class QuestionViewController: UIViewController  {
-    
-    @IBOutlet weak var answer: UILabel!
-    
-    var results: Int = 0
-    var quiz: Quiz
-    
 
-    @IBAction func answerBtn(_ sender: AnyObject) {
-        results = Int.init(sender.restorationIdentifier!!)!
-        print(results)
-    }
+    var results: Int = 0
+    var quiz: Quiz = Quiz()
     
+    @IBOutlet weak var questionLabel: UILabel!
+    @IBOutlet weak var firstBtnInpt: UIButton!
+    @IBOutlet weak var secondBtnInput: UIButton!
+    @IBOutlet weak var thirdBtnInput: UIButton!
+    @IBOutlet weak var fourthBtnInput: UIButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
         // Do any additional setup after loading the view.
     }

@@ -10,21 +10,23 @@ import UIKit
 
 class MainTableViewController: UITableViewController {
     
+    @IBOutlet weak var quizSelection: QuizFrontTableViewCell!
+    
     let info: [String] = ["Science", "Math", "Marvel"]
     let infoDescr: [String] = ["Stuff about the univers", "Stuff about numbers", "Stuff about superheros"]
     let img: [String] = ["science", "math", "marvel"]
-    let questAnswer: [[String: [String]]] = [
-        ["What is the atomic makeup of water?": ["H3N", "H2O", "CO2", "H2O2"]],
-        ["What is 2 + 2": ["4", "5", "6", "7"]],
-        ["Who is Iron Man?": ["Fred Flinstone", "Paul Allen", "Barry Allen", "Tony Stark"]]
+    let questions: [String: [[String: [String]]]] = [
+        "Science": [["What is the atomic makeup of water?": ["H3N", "H2O", "CO2", "H2O2"]]],
+        "Math": [["What is 2 + 2": ["4", "5", "6", "7"]]],
+        "Marvel": [["Who is Iron Man?": ["Fred Flinstone", "Paul Allen", "Barry Allen", "Tony Stark"]]]
     ]
     let answers: [[Int]] = [
         [1],
         [0],
         [3]
     ]
-    var quiz = Quiz(quizes: questAnswer, quizNames: info, quizDescription: infoDescr,
-                    answerArray: answers)
+    var quiz: Quiz = Quiz()
+  
 
     
     @IBAction func editBtnInput(_ sender: AnyObject) {
@@ -58,6 +60,11 @@ class MainTableViewController: UITableViewController {
         
         self.configureTableview()
         self.configureNavBar()
+        
+        self.quiz.add(questions: self.questions)
+        self.quiz.add(quizNames: self.info)
+        self.quiz.add(quizDescription: self.infoDescr)
+        self.quiz.add(answer: self.answers)
         // Uncomment the following line to preserve selection between presentations
         // self.    clearsSelectionOnViewWillAppear = false
 
@@ -93,8 +100,13 @@ class MainTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        quiz.choose(quiz: indexPath.row)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        var dest: QuestionViewController = segue.destination as! QuestionViewController
+        let dest: QuestionViewController = segue.destination as! QuestionViewController
+        dest.quiz = self.quiz
     }
     
 

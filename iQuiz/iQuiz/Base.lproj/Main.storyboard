@@ -36,8 +36,12 @@
                                     <frame key="frameInset" width="375" height="87"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hOo-Rh-lTM">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hOo-Rh-lTM">
                                             <frame key="frameInset" minX="14" minY="6" width="81" height="75"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="75" id="0kd-KO-igp"/>
+                                                <constraint firstAttribute="width" constant="81" id="nJ8-L3-XpL"/>
+                                            </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KCB-dy-tnB">
                                             <frame key="frameInset" minX="103" minY="8" width="264" height="21"/>
@@ -57,6 +61,7 @@
                                         <constraint firstItem="KCB-dy-tnB" firstAttribute="trailing" secondItem="YHr-73-s1d" secondAttribute="trailingMargin" id="MQE-2V-tWK"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="LHs-hc-0Rv" secondAttribute="bottom" constant="8" id="RjI-2z-szS"/>
                                         <constraint firstItem="KCB-dy-tnB" firstAttribute="top" secondItem="YHr-73-s1d" secondAttribute="topMargin" id="XHO-lz-uss"/>
+                                        <constraint firstItem="hOo-Rh-lTM" firstAttribute="leading" secondItem="YHr-73-s1d" secondAttribute="leading" constant="10" id="ahL-SU-WoP"/>
                                         <constraint firstItem="LHs-hc-0Rv" firstAttribute="trailing" secondItem="YHr-73-s1d" secondAttribute="trailingMargin" constant="30" id="e77-kB-07y"/>
                                         <constraint firstAttribute="bottom" secondItem="hOo-Rh-lTM" secondAttribute="bottom" constant="5.5" id="hCh-zz-k9T"/>
                                     </constraints>
@@ -102,9 +107,6 @@
                                 <frame key="frameInset" minX="43" minY="339" width="295" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="answerBtn:" destination="RfZ-9u-UKL" eventType="touchUpInside" id="IdC-ET-2el"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="2" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qDv-VE-4xr">
                                 <frame key="frameInset" minX="43" minY="377" width="295" height="30"/>
@@ -126,12 +128,19 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Back"/>
+                                <connections>
+                                    <segue destination="yiq-NI-iye" kind="show" id="4vW-LG-HSe"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="answer" destination="PoM-kH-iGu" id="bRW-ps-e9a"/>
+                        <outlet property="firstBtnInpt" destination="MNE-5U-KbI" id="xwh-rn-cON"/>
+                        <outlet property="fourthBtnInput" destination="NZj-UU-RRM" id="nnq-M7-PKQ"/>
+                        <outlet property="questionLabel" destination="PoM-kH-iGu" id="qj6-sF-gxM"/>
+                        <outlet property="secondBtnInput" destination="qDv-VE-4xr" id="ojK-ud-K8x"/>
+                        <outlet property="thirdBtnInput" destination="PP3-Gu-dba" id="7xL-YH-H6R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Co-AR-4sI" userLabel="First Responder" sceneMemberID="firstResponder"/>
