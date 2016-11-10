@@ -19,6 +19,7 @@ class Quiz {
     var currentQuestions: [String: [String]]
     var currentTitles: [String]
     var questionNum: Int
+    var currentAnswers: [Int]
     
     init() {
         self.chosenQuiz = "Science"
@@ -31,6 +32,7 @@ class Quiz {
         self.currentQuestions = ["Start": ["Start"]]
         self.currentTitles = ["Start"]
         self.questionNum = 1
+        self.currentAnswers = [0]
     }
     
     func add(questions: [String: [String: [String]]]) {
@@ -56,6 +58,7 @@ class Quiz {
     
     func choose(quiz: Int) {
         self.chosenQuiz = self.quizName[quiz]
+        self.currentAnswers = self.answers[quiz]
         self.currentQuestions = self.quizQuestions[self.chosenQuiz]!
         for questions in self.currentQuestions.keys {
             self.currentTitles.append(questions)
@@ -67,6 +70,6 @@ class Quiz {
     }
     
     func getAnswers() -> [String] {
-        return self.currentQuestions["What is the atomic makeup of water?"]!
+        return self.currentQuestions[self.getQuestion()]!
     }
 }

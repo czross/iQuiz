@@ -10,7 +10,7 @@ import UIKit
 
 class MainTableViewController: UITableViewController {
     
-    @IBOutlet weak var quizSelection: QuizFrontTableViewCell!
+    @IBOutlet weak var selectedCell: QuizFrontTableViewCell!
     
     let info: [String] = ["Science", "Math", "Marvel"]
     let infoDescr: [String] = ["Stuff about the univers", "Stuff about numbers", "Stuff about superheros"]
@@ -100,13 +100,24 @@ class MainTableViewController: UITableViewController {
         return cell
     }
     
-    
+
+    /*
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let dest: QuestionViewController = segue.destination as! QuestionViewController
         quiz.choose(quiz: 0)
         dest.quiz = self.quiz
+    } */
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let indexPath = tableView.indexPathForSelectedRow{
+            let selectedRow = indexPath.row
+            let dest: QuestionViewController = segue.destination as! QuestionViewController
+            quiz.choose(quiz: selectedRow)
+            dest.quiz = self.quiz
+        }
     }
+    
     
 
     /*

@@ -16,6 +16,11 @@ class AnswerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if (quiz.chosenAnswer == quiz.currentAnswers[quiz.questionNum - 1]) {
+            displayMessage.text = "You are correct the answer is \(quiz.currentQuestions[quiz.currentTitles[quiz.questionNum]])"
+        } else {
+            displayMessage.text = "The correct the answer is \(quiz.currentQuestions[quiz.currentTitles[quiz.questionNum]])"
+        }
         displayMessage.text = "You are correct"
         quiz.questionNum += 1
         // Do any additional setup after loading the view.

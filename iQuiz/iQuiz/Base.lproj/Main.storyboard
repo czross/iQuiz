@@ -107,21 +107,33 @@
                                 <frame key="frameInset" minX="43" minY="339" width="295" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="answerBtnPressed:" destination="RfZ-9u-UKL" eventType="touchUpInside" id="d7L-r6-isx"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="2" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qDv-VE-4xr">
                                 <frame key="frameInset" minX="43" minY="377" width="295" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="answerBtnPressed:" destination="RfZ-9u-UKL" eventType="touchUpInside" id="gO2-6Y-GuG"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="3" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PP3-Gu-dba">
                                 <frame key="frameInset" minX="43" minY="425" width="295" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="answerBtnPressed:" destination="RfZ-9u-UKL" eventType="touchUpInside" id="vcV-Q5-c85"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="4" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NZj-UU-RRM">
                                 <frame key="frameInset" minX="43" minY="474" width="295" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="answerBtnPressed:" destination="RfZ-9u-UKL" eventType="touchUpInside" id="pD0-2Y-Obx"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fB8-IF-Srb">
                                 <frame key="frameInset" minX="16" minY="629" width="46" height="30"/>
@@ -148,6 +160,7 @@
                         <outlet property="fourthBtnInput" destination="NZj-UU-RRM" id="nnq-M7-PKQ"/>
                         <outlet property="questionLabel" destination="PoM-kH-iGu" id="qj6-sF-gxM"/>
                         <outlet property="secondBtnInput" destination="qDv-VE-4xr" id="ojK-ud-K8x"/>
+                        <outlet property="submitBtnInput" destination="NuN-Dx-M4I" id="HS9-4m-Q5V"/>
                         <outlet property="thirdBtnInput" destination="PP3-Gu-dba" id="7xL-YH-H6R"/>
                     </connections>
                 </viewController>
@@ -208,6 +221,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="4vW-LG-HSe"/>
-        <segue reference="19Y-hm-K8T"/>
+        <segue reference="6Pk-WB-JgT"/>
     </inferredMetricsTieBreakers>
 </document>

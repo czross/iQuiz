@@ -18,6 +18,7 @@ class QuestionViewController: UIViewController  {
     @IBOutlet weak var secondBtnInput: UIButton!
     @IBOutlet weak var thirdBtnInput: UIButton!
     @IBOutlet weak var fourthBtnInput: UIButton!
+    @IBOutlet weak var submitBtnInput: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +34,7 @@ class QuestionViewController: UIViewController  {
             secondBtnInput.isHidden = true
             thirdBtnInput.isHidden = true
             fourthBtnInput.isHidden = true
+            submitBtnInput.isHidden = true
             questionLabel.text = "FINISHED!"
         }
         
@@ -58,5 +60,9 @@ class QuestionViewController: UIViewController  {
         }
     }
     
+    @IBAction func answerBtnPressed(_ sender: AnyObject) {
+        //quiz.chosenAnswer = Int.init(sender.restorationIdentifier)!
+        print(sender.restorationIdentifier)
+    }
 
 }
