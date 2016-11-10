@@ -13,8 +13,20 @@ class MainTableViewController: UITableViewController {
     let info: [String] = ["Science", "Math", "Marvel"]
     let infoDescr: [String] = ["Stuff about the univers", "Stuff about numbers", "Stuff about superheros"]
     let img: [String] = ["science", "math", "marvel"]
-    
+    let questAnswer: [[String: [String]]] = [
+        ["What is the atomic makeup of water?": ["H3N", "H2O", "CO2", "H2O2"]],
+        ["What is 2 + 2": ["4", "5", "6", "7"]],
+        ["Who is Iron Man?": ["Fred Flinstone", "Paul Allen", "Barry Allen", "Tony Stark"]]
+    ]
+    let answers: [[Int]] = [
+        [1],
+        [0],
+        [3]
+    ]
+    var quiz = Quiz(quizes: questAnswer, quizNames: info, quizDescription: infoDescr,
+                    answerArray: answers)
 
+    
     @IBAction func editBtnInput(_ sender: AnyObject) {
         let alert = UIAlertController(title: "Settings!", message:"This feature isn't available right now", preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .default) { _ in
@@ -25,6 +37,7 @@ class MainTableViewController: UITableViewController {
         alert.addAction(action)
         self.present(alert, animated: true){}
     }
+
 
     
     private func configureTableview() {
@@ -78,6 +91,10 @@ class MainTableViewController: UITableViewController {
         cell.imgCell.image = UIImage(named: self.img[indexPath.row])
         
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        var dest: QuestionViewController = segue.destination as! QuestionViewController
     }
     
 
