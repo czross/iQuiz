@@ -9,12 +9,15 @@
 import UIKit
 
 class AnswerViewController: UIViewController {
+    
+    @IBOutlet weak var displayMessage: UILabel!
 
     var quiz: Quiz = Quiz()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        displayMessage.text = "You are correct"
+        quiz.questionNum += 1
         // Do any additional setup after loading the view.
     }
 
@@ -24,14 +27,18 @@ class AnswerViewController: UIViewController {
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        // Pass the selected object to the new view controller. 
+        if segue.identifier == "toQuestion" {
+            let dest: QuestionViewController = segue.destination as! QuestionViewController
+            dest.quiz = self.quiz
+        }
     }
-    */
-
+    
+    
 }

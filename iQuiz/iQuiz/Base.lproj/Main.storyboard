@@ -137,7 +137,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Submit"/>
                                 <connections>
-                                    <segue destination="Mfg-5K-irJ" kind="show" id="3Rd-cL-vQN"/>
+                                    <segue destination="Mfg-5K-irJ" kind="show" identifier="toAnswer" id="3Rd-cL-vQN"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -167,9 +167,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IAE-zJ-g4W">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IAE-zJ-g4W">
                                 <frame key="frameInset" minX="166" minY="212" width="65" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -179,7 +178,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Back"/>
                                 <connections>
-                                    <segue destination="yiq-NI-iye" kind="show" id="Ydr-88-mVT"/>
+                                    <segue destination="yiq-NI-iye" kind="show" identifier="toHome" id="Ydr-88-mVT"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lMy-QU-IUM">
@@ -187,12 +186,20 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Next"/>
                                 <connections>
-                                    <segue destination="RfZ-9u-UKL" kind="show" id="19Y-hm-K8T"/>
+                                    <segue destination="RfZ-9u-UKL" kind="show" identifier="toQuestion" id="19Y-hm-K8T"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="IAE-zJ-g4W" firstAttribute="leading" secondItem="fYP-G2-3Br" secondAttribute="leadingMargin" constant="8" id="DzW-ib-KfX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="IAE-zJ-g4W" secondAttribute="trailing" constant="9" id="a5L-XW-nmt"/>
+                            <constraint firstItem="IAE-zJ-g4W" firstAttribute="top" secondItem="xe4-66-aTw" secondAttribute="bottom" constant="192" id="c2H-R2-3vW"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="displayMessage" destination="IAE-zJ-g4W" id="0zw-dp-BoQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Len-Zw-nTT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -200,7 +207,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="4vW-LG-HSe"/>
         <segue reference="19Y-hm-K8T"/>
-        <segue reference="Ydr-88-mVT"/>
     </inferredMetricsTieBreakers>
 </document>

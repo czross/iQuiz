@@ -21,20 +21,21 @@ class QuestionViewController: UIViewController  {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let answers = quiz.getAnswers()
-        questionLabel.text = quiz.getQuestion()
-        firstBtnInpt.setTitle(answers[0], for: UIControlState.normal)
-        secondBtnInput.setTitle(answers[1], for: UIControlState.normal)
-        thirdBtnInput.setTitle(answers[2], for: UIControlState.normal)
-        fourthBtnInput.setTitle(answers[3], for: UIControlState.normal)
-        
-        if quiz.questionNum >= quiz.currentTitles.count {
+        if quiz.questionNum < quiz.currentTitles.count {
+            let answers = quiz.getAnswers()
+            questionLabel.text = quiz.getQuestion()
+            firstBtnInpt.setTitle(answers[0], for: UIControlState.normal)
+            secondBtnInput.setTitle(answers[1], for: UIControlState.normal)
+            thirdBtnInput.setTitle(answers[2], for: UIControlState.normal)
+            fourthBtnInput.setTitle(answers[3], for: UIControlState.normal)
+        } else {
             firstBtnInpt.isHidden = true
             secondBtnInput.isHidden = true
             thirdBtnInput.isHidden = true
             fourthBtnInput.isHidden = true
             questionLabel.text = "FINISHED!"
         }
+        
         // Do any additional setup after loading the view.
     }
 
@@ -51,8 +52,10 @@ class QuestionViewController: UIViewController  {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        let dest: AnswerViewController = segue.destination as! AnswerViewController
-        dest.quiz = self.quiz
+        if segue.identifier == "toAnswer" {
+            let dest: AnswerViewController = segue.destination as! AnswerViewController
+            dest.quiz = self.quiz
+        }
     }
     
 
