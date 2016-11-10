@@ -9,7 +9,6 @@
 import UIKit
 
 class MainTableViewController: UITableViewController {
-
     
     let info: [String] = ["Science", "Math", "Marvel"]
     let infoDescr: [String] = ["Stuff about the univers", "Stuff about numbers", "Stuff about superheros"]
@@ -26,10 +25,11 @@ class MainTableViewController: UITableViewController {
         alert.addAction(action)
         self.present(alert, animated: true){}
     }
+
     
     private func configureTableview() {
+        self.tableView.estimatedRowHeight = 200
         self.tableView.rowHeight = UITableViewAutomaticDimension
-        self.tableView.estimatedRowHeight = 100
         self.tableView.tableFooterView = UIView()
     }
     
@@ -74,7 +74,7 @@ class MainTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! QuizFrontTableViewCell
         // Configure the cell...
         cell.titleCell.text = self.info[indexPath.row]
-        cell.descrCell.text = self.infoDescr[indexPath.row]
+        cell.descCell.text = self.infoDescr[indexPath.row]
         cell.imgCell.image = UIImage(named: self.img[indexPath.row])
         
         return cell
