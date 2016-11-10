@@ -15,10 +15,10 @@ class MainTableViewController: UITableViewController {
     let info: [String] = ["Science", "Math", "Marvel"]
     let infoDescr: [String] = ["Stuff about the univers", "Stuff about numbers", "Stuff about superheros"]
     let img: [String] = ["science", "math", "marvel"]
-    let questions: [String: [[String: [String]]]] = [
-        "Science": [["What is the atomic makeup of water?": ["H3N", "H2O", "CO2", "H2O2"]]],
-        "Math": [["What is 2 + 2": ["4", "5", "6", "7"]]],
-        "Marvel": [["Who is Iron Man?": ["Fred Flinstone", "Paul Allen", "Barry Allen", "Tony Stark"]]]
+    let questions: [String: [String: [String]]] = [
+        "Science": ["What is the atomic makeup of water?": ["H3N", "H2O", "CO2", "H2O2"]],
+        "Math": ["What is 2 + 2": ["4", "5", "6", "7"]],
+        "Marvel": ["Who is Iron Man?": ["Fred Flinstone", "Paul Allen", "Barry Allen", "Tony Stark"]]
     ]
     let answers: [[Int]] = [
         [1],
@@ -100,12 +100,11 @@ class MainTableViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        quiz.choose(quiz: indexPath.row)
-    }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let dest: QuestionViewController = segue.destination as! QuestionViewController
+        quiz.choose(quiz: 0)
         dest.quiz = self.quiz
     }
     

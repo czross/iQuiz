@@ -10,26 +10,30 @@ import UIKit
 
 class Quiz {
     var chosenQuiz: String
-    var quizQuestions: [String: [[String: [String]]]] //a Dictionary of arrays of a dictionary that has a String : [String] pairing
+    var quizQuestions: [String: [String: [String]]] //a dictionary containing a String: [String] pairing
     var numQuizes: Int
     var quizName: [String]
     var quizDesc: [String]
     var answers: [[Int]]
     var chosenAnswer: Int
-    var currentQuestions: [[String: [String]]]
+    var currentQuestions: [String: [String]]
+    var currentTitles: [String]
+    var questionNum: Int
     
     init() {
-        self.chosenQuiz = ""
-        self.quizQuestions = ["Start": [["Start": ["Start"]]]]
+        self.chosenQuiz = "Science"
+        self.quizQuestions = ["Start": ["Start": ["Start"]]]
         self.numQuizes = 0
-        self.quizName = ["blank"]
-        self.quizDesc = ["blank"]
+        self.quizName = ["Start"]
+        self.quizDesc = ["Start"]
         self.answers = [[0]]
         self.chosenAnswer = 0
-        self.currentQuestions = [["String": ["Start"]]]
+        self.currentQuestions = ["Start": ["Start"]]
+        self.currentTitles = ["Start"]
+        self.questionNum = 1
     }
     
-    func add(questions: [String: [[String: [String]]]]) {
+    func add(questions: [String: [String: [String]]]) {
         self.quizQuestions = questions
     }
     
@@ -53,8 +57,16 @@ class Quiz {
     func choose(quiz: Int) {
         self.chosenQuiz = self.quizName[quiz]
         self.currentQuestions = self.quizQuestions[self.chosenQuiz]!
+        for questions in self.currentQuestions.keys {
+            self.currentTitles.append(questions)
+        }
     }
     
+    func getQuestion() -> String {
+        return self.currentTitles[self.questionNum]
+    }
     
-
+    func getAnswers() -> [String] {
+        return self.currentQuestions["What is the atomic makeup of water?"]!
+    }
 }
