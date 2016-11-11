@@ -21,9 +21,9 @@ class MainTableViewController: UITableViewController {
         "Marvel": ["Who is Iron Man?": ["Fred Flinstone", "Paul Allen", "Barry Allen", "Tony Stark"]]
     ]
     let answers: [[Int]] = [
+        [2],
         [1],
-        [0],
-        [3]
+        [4]
     ]
     var quiz: Quiz = Quiz()
   

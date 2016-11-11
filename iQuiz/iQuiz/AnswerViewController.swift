@@ -12,17 +12,26 @@ class AnswerViewController: UIViewController {
     
     @IBOutlet weak var displayMessage: UILabel!
 
+
     var quiz: Quiz = Quiz()
+    
+ 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if (quiz.chosenAnswer == quiz.currentAnswers[quiz.questionNum - 1]) {
-            displayMessage.text = "You are correct the answer is \(quiz.currentQuestions[quiz.currentTitles[quiz.questionNum]])"
+        // var currentQuestions: [String: [String]]
+        let num = quiz.questionNum - 1
+        let choose = quiz.currentAnswers[num] - 1
+        let realResponse = quiz.getAnswers()
+        let response = realResponse[choose]
+        if (quiz.chosenAnswer == choose) {
+            displayMessage.text = "You are correct the answer is \(response)"
+            quiz.answerCorrect += 1
         } else {
-            displayMessage.text = "The correct the answer is \(quiz.currentQuestions[quiz.currentTitles[quiz.questionNum]])"
+            displayMessage.text = "The correct the answer is \(response)"
         }
-        displayMessage.text = "You are correct"
         quiz.questionNum += 1
+        quiz.answerTotals += 1
         // Do any additional setup after loading the view.
     }
 

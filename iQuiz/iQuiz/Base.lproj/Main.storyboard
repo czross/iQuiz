@@ -63,7 +63,9 @@
                                         <constraint firstItem="KCB-dy-tnB" firstAttribute="top" secondItem="YHr-73-s1d" secondAttribute="topMargin" id="XHO-lz-uss"/>
                                         <constraint firstItem="hOo-Rh-lTM" firstAttribute="leading" secondItem="YHr-73-s1d" secondAttribute="leading" constant="10" id="ahL-SU-WoP"/>
                                         <constraint firstItem="LHs-hc-0Rv" firstAttribute="trailing" secondItem="YHr-73-s1d" secondAttribute="trailingMargin" constant="30" id="e77-kB-07y"/>
+                                        <constraint firstItem="KCB-dy-tnB" firstAttribute="leading" secondItem="hOo-Rh-lTM" secondAttribute="trailing" constant="90" id="h1G-7O-9ap"/>
                                         <constraint firstAttribute="bottom" secondItem="hOo-Rh-lTM" secondAttribute="bottom" constant="5.5" id="hCh-zz-k9T"/>
+                                        <constraint firstItem="LHs-hc-0Rv" firstAttribute="leading" secondItem="hOo-Rh-lTM" secondAttribute="trailing" constant="90" id="tFP-TR-3sl"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -220,7 +222,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="4vW-LG-HSe"/>
-        <segue reference="6Pk-WB-JgT"/>
+        <segue reference="Ydr-88-mVT"/>
+        <segue reference="19Y-hm-K8T"/>
     </inferredMetricsTieBreakers>
 </document>

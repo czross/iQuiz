@@ -35,7 +35,7 @@ class QuestionViewController: UIViewController  {
             thirdBtnInput.isHidden = true
             fourthBtnInput.isHidden = true
             submitBtnInput.isHidden = true
-            questionLabel.text = "FINISHED!"
+            questionLabel.text = "FINISHED! You got \(quiz.answerCorrect) out of \(quiz.answerTotals) correct"
         }
         
         // Do any additional setup after loading the view.
@@ -60,9 +60,8 @@ class QuestionViewController: UIViewController  {
         }
     }
     
-    @IBAction func answerBtnPressed(_ sender: AnyObject) {
-        //quiz.chosenAnswer = Int.init(sender.restorationIdentifier)!
-        print(sender.restorationIdentifier)
+    @IBAction func answerBtnPressed(_ sender: UIButton) {
+        quiz.chosenAnswer = Int.init(sender.restorationIdentifier!)!
     }
 
 }

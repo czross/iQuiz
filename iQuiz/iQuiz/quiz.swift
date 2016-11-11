@@ -20,6 +20,8 @@ class Quiz {
     var currentTitles: [String]
     var questionNum: Int
     var currentAnswers: [Int]
+    var answerTotals: Int
+    var answerCorrect: Int
     
     init() {
         self.chosenQuiz = "Science"
@@ -33,6 +35,8 @@ class Quiz {
         self.currentTitles = ["Start"]
         self.questionNum = 1
         self.currentAnswers = [0]
+        self.answerTotals = 0
+        self.answerCorrect = 0
     }
     
     func add(questions: [String: [String: [String]]]) {
@@ -71,5 +75,12 @@ class Quiz {
     
     func getAnswers() -> [String] {
         return self.currentQuestions[self.getQuestion()]!
+    }
+    
+    func answerSet() {
+        self.answerTotals += 1
+        if (self.chosenAnswer == self.currentAnswers[self.questionNum]) {
+            self.answerCorrect += 1
+        }
     }
 }
