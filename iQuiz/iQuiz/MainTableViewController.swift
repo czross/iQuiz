@@ -12,6 +12,7 @@ class MainTableViewController: UITableViewController {
     
     @IBOutlet weak var selectedCell: QuizFrontTableViewCell!
     
+    /*
     let info: [String] = ["Science", "Math", "Marvel"]
     let infoDescr: [String] = ["Stuff about the univers", "Stuff about numbers", "Stuff about superheros"]
     let img: [String] = ["science", "math", "marvel"]
@@ -24,8 +25,10 @@ class MainTableViewController: UITableViewController {
         [2],
         [1],
         [4]
-    ]
+    ] */
     var quiz: Quiz = Quiz()
+    var getJson: GetNetwork = GetNetwork(url: "https://tednewardsandbox.site44.com/questions.json")
+
   
 
     
@@ -60,11 +63,13 @@ class MainTableViewController: UITableViewController {
         
         self.configureTableview()
         self.configureNavBar()
-        
+        let data = getJson.getJsonData()
+        print("This is the data\(getJson.getJsonData())")
+        /*
         self.quiz.add(questions: self.questions)
         self.quiz.add(quizNames: self.info)
         self.quiz.add(quizDescription: self.infoDescr)
-        self.quiz.add(answer: self.answers)
+        self.quiz.add(answer: self.answers) */
         // Uncomment the following line to preserve selection between presentations
         // self.    clearsSelectionOnViewWillAppear = false
 
@@ -86,16 +91,17 @@ class MainTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return info.count
+        //return info.count
+        return 1
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! QuizFrontTableViewCell
         // Configure the cell...
-        cell.titleCell.text = self.info[indexPath.row]
-        cell.descCell.text = self.infoDescr[indexPath.row]
-        cell.imgCell.image = UIImage(named: self.img[indexPath.row])
+        cell.titleCell.text = "hello" // self.info[indexPath.row]
+        cell.descCell.text = "hows it going" // self.infoDescr[indexPath.row]
+        cell.imgCell.image = UIImage(named: "math") // self.img[indexPath.row])
         
         return cell
     }

@@ -21,39 +21,56 @@ class GetNetwork {
         }
     }
     
-    func getJsonData() -> NSDictionary {
-        var ret: NSDictionary = ["" : AnyObject.self]
+    func getJsonData() -> NSArray {
+        var ret: NSArray = []
         let request = NSMutableURLRequest(url: self.url as URL)
         request.httpMethod = "GET"
-        
-        let task = URLSession.shared.dataTask(with: request as URLRequest) {data, response, error in
+        /*
+        httpGet(request: request) { (data, error) in
             if error != nil {
                 print(error)
+            } else {
+                responseJson = data.data(using: .utf8)!
+                print(responseJson)
+            }
+        } */
+        
+        let task = URLSession.shared.dataTask(with: request as URLRequest) {
+            data, response, error in
+            // Check for error
+            guard error == nil && data != nil else
+            {
+                print("Error: \(error)")
                 return
             }
-            
-            let responseString = String(data: data!, encoding: String.Encoding.utf8)
-            print(responseString)
-            
-            do {
-                if let dict = try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary {
-                    
-                    // Print out dictionary
-                    print(dict)
-                    ret = dict
-                    // Get value by key
-                    let firstNameValue = dict["userName"] as? String
-                    print(firstNameValue!)
-                    
-                    }
-                } catch let error as NSError {
-                    print(error.localizedDescription)
-                }
+            // Print out response string
+            let responseString = try! JSONSerialization.jsonObject(with: data!, options: .allowFragments) as! NSArray
+            ret = responseString
         }
         
         task.resume()
+
+        //ret = try! JSONSerialization.jsonObject(with: responseJson!) as! NSDictionary
+        print(ret)
         return ret
     }
+    
+    private func httpGet(request: NSURLRequest!, callback: @escaping (String, String?) -> Void) {
+        let session = URLSession.shared
+        let task = session.dataTask(with: request as URLRequest) {
+            (data, response, error) -> Void in
+            if error != nil {
+                print("error callback")
+                callback("", error!.localizedDescription)
+            } else {
+                let result = NSString(data: data!, encoding: String.Encoding.ascii.rawValue)!
+                print("doing the stuff \(result)")
+                callback(result as String, nil)
+            }
+        }
+        task.resume()
+    }
+    
 }
 
 
