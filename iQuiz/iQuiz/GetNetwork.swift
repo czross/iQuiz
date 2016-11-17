@@ -36,9 +36,9 @@ class GetNetwork {
             }
             // Print out response string
             let responseString = try! JSONSerialization.jsonObject(with: data!, options: .allowFragments) as! NSArray
-            print("Response String in getJasonData() \(responseString)")
+            //print("Response String in getJasonData() \(responseString)")
             ret = responseString
-            print(ret)
+            //print(ret)
         }
         
         task.resume()

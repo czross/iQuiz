@@ -26,8 +26,7 @@ class MainTableViewController: UITableViewController {
         [1],
         [4]
     ] */
-    var getJson: GetNetwork = GetNetwork(url: "https://tednewardsandbox.site44.com/questions.json")
-    var quiz: Quiz2 = Quiz2(nil)
+    var quiz: Quiz2 = Quiz2("https://tednewardsandbox.site44.com/questions.json")
 
   
 
@@ -63,7 +62,6 @@ class MainTableViewController: UITableViewController {
         
         self.configureTableview()
         self.configureNavBar()
-        quiz.set(data: getJson.getJsonData())
         /*
         self.quiz.add(questions: self.questions)
         self.quiz.add(quizNames: self.info)
@@ -99,6 +97,7 @@ class MainTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! QuizFrontTableViewCell
         // Configure the cell...
         let tempData: [String: AnyObject] = (quiz.mainData![indexPath.row] as! [String : AnyObject])
+        print("Inside cell view thingy \(tempData) ")
         cell.titleCell.text = tempData["title"] as! String?
         cell.descCell.text = tempData["desc"] as! String?
         cell.imgCell.image = UIImage(named: (tempData["title"] as! String?)!)
@@ -119,6 +118,9 @@ class MainTableViewController: UITableViewController {
             let selectedRow = indexPath.row
             let dest: QuestionViewController = segue.destination as! QuestionViewController
             quiz.choose(quiz: selectedRow)
+            dest.quiz = self.quiz
+        } else if segue.identifier == "toSettings" {
+            let dest: SettingsViewController = segue.destination as! SettingsViewController
             dest.quiz = self.quiz
         }
     }

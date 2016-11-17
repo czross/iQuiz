@@ -7,6 +7,77 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Settings View Controller-->
+        <scene sceneID="vCp-LJ-u9X">
+            <objects>
+                <viewController id="FMb-Nt-5Qj" customClass="SettingsViewController" customModule="iQuiz" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="I9c-Kv-eRG"/>
+                        <viewControllerLayoutGuide type="bottom" id="vBx-e2-L9P"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yU2-1h-aQz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="usX-mM-bKE">
+                                <frame key="frameInset" minX="16" minY="44" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter URL here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U3u-sG-DtI">
+                                <frame key="frameInset" minX="16" minY="73" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YsK-J5-Cl1">
+                                <frame key="frameInset" minX="312" minY="111" width="49" height="30"/>
+                                <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="submitBtnInut:" destination="FMb-Nt-5Qj" eventType="touchUpInside" id="HwK-1p-tWE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fcP-im-YGQ">
+                                <frame key="frameInset" minX="16" minY="111" width="52" height="30"/>
+                                <state key="normal" title="Reload"/>
+                                <connections>
+                                    <action selector="reloadBtnInput:" destination="FMb-Nt-5Qj" eventType="touchUpInside" id="6gj-UQ-CXz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VOj-H3-VjH">
+                                <frame key="frameInset" minX="16" minY="617" width="46" height="30"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <segue destination="yiq-NI-iye" kind="show" id="UfX-qK-2Fl"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="U3u-sG-DtI" firstAttribute="top" secondItem="usX-mM-bKE" secondAttribute="bottom" constant="8" id="0oQ-ed-ypQ"/>
+                            <constraint firstItem="vBx-e2-L9P" firstAttribute="top" secondItem="VOj-H3-VjH" secondAttribute="bottom" constant="20" id="5ML-dS-fWo"/>
+                            <constraint firstItem="usX-mM-bKE" firstAttribute="top" secondItem="I9c-Kv-eRG" secondAttribute="bottom" constant="24" id="847-ef-Iu4"/>
+                            <constraint firstItem="YsK-J5-Cl1" firstAttribute="top" secondItem="U3u-sG-DtI" secondAttribute="bottom" constant="8" id="CJW-Hu-39k"/>
+                            <constraint firstItem="usX-mM-bKE" firstAttribute="leading" secondItem="yU2-1h-aQz" secondAttribute="leadingMargin" constant="8" id="HLn-h5-joA"/>
+                            <constraint firstItem="fcP-im-YGQ" firstAttribute="top" secondItem="U3u-sG-DtI" secondAttribute="bottom" constant="8" id="Hd2-Vc-9BF"/>
+                            <constraint firstItem="U3u-sG-DtI" firstAttribute="leading" secondItem="yU2-1h-aQz" secondAttribute="leading" constant="8" id="QYS-lK-gps"/>
+                            <constraint firstAttribute="trailing" secondItem="YsK-J5-Cl1" secondAttribute="trailing" constant="8" id="WfB-PI-3Wl"/>
+                            <constraint firstItem="usX-mM-bKE" firstAttribute="trailing" secondItem="yU2-1h-aQz" secondAttribute="trailingMargin" constant="8" id="eqZ-V5-22c"/>
+                            <constraint firstItem="fcP-im-YGQ" firstAttribute="leading" secondItem="yU2-1h-aQz" secondAttribute="leadingMargin" constant="8" id="et9-Ax-vJV"/>
+                            <constraint firstAttribute="trailing" secondItem="U3u-sG-DtI" secondAttribute="trailing" constant="8" id="iYr-H0-QMW"/>
+                            <constraint firstItem="VOj-H3-VjH" firstAttribute="leading" secondItem="yU2-1h-aQz" secondAttribute="leadingMargin" constant="8" id="kRi-z1-r1a"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="urlEntry" destination="U3u-sG-DtI" id="e8f-zp-aBn"/>
+                        <outlet property="urlLable" destination="usX-mM-bKE" id="Qy8-TG-MWC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="03N-v4-fmw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="901.60000000000002" y="-621.13943028485767"/>
+        </scene>
         <!--Main Table View Controller-->
         <scene sceneID="eaI-9L-6CK">
             <objects>
@@ -23,6 +94,9 @@
                                     <barButtonItem key="rightBarButtonItem" systemItem="edit" id="xkz-1J-YbV">
                                         <connections>
                                             <action selector="editBtnInput:" destination="yiq-NI-iye" id="smb-aB-Low"/>
+                                            <segue destination="FMb-Nt-5Qj" kind="popoverPresentation" identifier="toSettings" popoverAnchorBarButtonItem="xkz-1J-YbV" id="HhG-Og-mMV">
+                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                            </segue>
                                         </connections>
                                     </barButtonItem>
                                 </navigationItem>
@@ -33,7 +107,7 @@
                                 <rect key="frame" x="0.0" y="72" width="375" height="87"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YJm-TX-LI2" id="YHr-73-s1d">
-                                    <frame key="frameInset" width="375" height="87"/>
+                                    <frame key="frameInset" width="375" height="86"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hOo-Rh-lTM">
@@ -222,7 +296,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Ydr-88-mVT"/>
-        <segue reference="19Y-hm-K8T"/>
+        <segue reference="6Pk-WB-JgT"/>
+        <segue reference="UfX-qK-2Fl"/>
     </inferredMetricsTieBreakers>
 </document>
