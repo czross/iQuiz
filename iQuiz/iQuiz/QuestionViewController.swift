@@ -11,7 +11,7 @@ import UIKit
 class QuestionViewController: UIViewController  {
 
     var results: Int = 0
-    var quiz: Quiz = Quiz()
+    var quiz: Quiz2 = Quiz2(nil)
     
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var firstBtnInpt: UIButton!
@@ -22,7 +22,7 @@ class QuestionViewController: UIViewController  {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        if quiz.questionNum < quiz.currentTitles.count {
+       /* if quiz.questionNum < quiz.currentTitles.count {
             let answers = quiz.getAnswers()
             questionLabel.text = quiz.getQuestion()
             firstBtnInpt.setTitle(answers[0], for: UIControlState.normal)
@@ -35,9 +35,9 @@ class QuestionViewController: UIViewController  {
             thirdBtnInput.isHidden = true
             fourthBtnInput.isHidden = true
             submitBtnInput.isHidden = true
-            questionLabel.text = "FINISHED! You got \(quiz.answerCorrect) out of \(quiz.answerTotals) correct"
+            /questionLabel.text = "FINISHED! You got \(quiz.answerCorrect) out of \(quiz.answerTotals) correct"
         }
-        
+        */
         // Do any additional setup after loading the view.
     }
 
@@ -61,7 +61,7 @@ class QuestionViewController: UIViewController  {
     }
     
     @IBAction func answerBtnPressed(_ sender: UIButton) {
-        quiz.chosenAnswer = Int.init(sender.restorationIdentifier!)!
+      //  quiz.chosenAnswer = Int.init(sender.restorationIdentifier!)!
     }
 
 }

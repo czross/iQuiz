@@ -26,8 +26,8 @@ class MainTableViewController: UITableViewController {
         [1],
         [4]
     ] */
-    var quiz: Quiz = Quiz()
     var getJson: GetNetwork = GetNetwork(url: "https://tednewardsandbox.site44.com/questions.json")
+    var quiz: Quiz2 = Quiz2(nil)
 
   
 
@@ -63,8 +63,7 @@ class MainTableViewController: UITableViewController {
         
         self.configureTableview()
         self.configureNavBar()
-        let data = getJson.getJsonData()
-        print("This is the data\(getJson.getJsonData())")
+        quiz.set(data: getJson.getJsonData())
         /*
         self.quiz.add(questions: self.questions)
         self.quiz.add(quizNames: self.info)
@@ -92,17 +91,17 @@ class MainTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         //return info.count
-        return 1
+        return quiz.retNumQuestionTypes()
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! QuizFrontTableViewCell
         // Configure the cell...
-        cell.titleCell.text = "hello" // self.info[indexPath.row]
-        cell.descCell.text = "hows it going" // self.infoDescr[indexPath.row]
-        cell.imgCell.image = UIImage(named: "math") // self.img[indexPath.row])
-        
+        let tempData: [String: AnyObject] = (quiz.mainData![indexPath.row] as! [String : AnyObject])
+        cell.titleCell.text = tempData["title"] as! String?
+        cell.descCell.text = tempData["desc"] as! String?
+        cell.imgCell.image = UIImage(named: (tempData["title"] as! String?)!)
         return cell
     }
     

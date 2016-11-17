@@ -13,12 +13,12 @@ class AnswerViewController: UIViewController {
     @IBOutlet weak var displayMessage: UILabel!
 
 
-    var quiz: Quiz = Quiz()
+    var quiz: Quiz2 = Quiz2(nil)
     
  
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad() /*
         // var currentQuestions: [String: [String]]
         let num = quiz.questionNum - 1
         let choose = quiz.currentAnswers[num] - 1
@@ -31,7 +31,7 @@ class AnswerViewController: UIViewController {
             displayMessage.text = "The correct the answer is \(response)"
         }
         quiz.questionNum += 1
-        quiz.answerTotals += 1
+        quiz.answerTotals += 1 */
         // Do any additional setup after loading the view.
     }
 
